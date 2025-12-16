@@ -1,0 +1,17 @@
+.collectiongame{
+    display: flex;
+    margin: 50px 0px;
+}
+.eachgame a{
+    text-decoration: none;
+}
+.eachgame{
+    width: 500px;
+    height: 310px;
+    background-color: blue;
+    margin: 0 40px;
+    border-radius: 30px;
+}
+.eachgame img{
+    border-radius: 30px;
+}

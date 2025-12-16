@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/project.css">
+</head>
+<body >
+  <header>
+    <div class="container">
+    <a >SOCIAL LINK</a>
+      {{!-- <button onclick="clickbutton()">--</button> --}}
+    <nav>
+        <a href="/">Home</a>
+         {{#if data}}
+          <a href="/accounts">Account</a>
+          {{/if}}
+        <a href="/about">About</a>
+        <a href="/about">Contact</a>
+        
+    </nav>
+    </div>
+     </header> <!--header end -->
+      <div class="empty" id="mobile-slide">
+        <div class="slide-x"> 
+           <div onclick="onbody()" >x</div>
+           </div>
+    <div class="mobile-account">
+      <div class="profile"></div>
+      <div class="name">
+         {{#if data}}
+          <a href="/accounts">{{data.username}}</a>
+          {{else}}
+           <a href="/login">Login</a>
+          {{/if}}
+        </div>
+    </div>
+      <div class="body-slide">
+         <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/about">Contact</a>
+      </div>
+      </div>
+      <div class="full-body" onclick="onbody()">
+  <main>
+  
+    <section class="banner-section">
+  
+<div class="container">
+  
+  <div class="section-left">
+    <h1>Welcome to <br>
+      SOCIAL LINK</h1><br>
+    <p>Welcome to our studying website!
+      We're excited to have you here and to help you achieve your academic goals. Whether you're a
+      student looking to improve your grades, a professional seeking to enhance your skills, or simply
+      someone who loves to learn, you've come to the right place</p>
+      <div>
+        <!-- Search input -->
+      {{#if data}}
+        <a href="/logout">logout</a>
+      {{else}}
+        <a href="/login">login</a>
+      {{/if}}
+    <a href="/newclass">create class</a>
+      </div>
+  </div>
+  <div class="section-right">  
+   <div class="right-img">
+  
+   </div>
+  </div>
+</div>
+    </section>
+  </main> 
+<section class="SearchPart">
+  <div class="Main-box">
+  <div class="row">
+    <input type="text" class="inputP" id="searchInput" placeholder="Search.." onkeyup="search()" autocomplete="off">
+    <button onclick="searched()"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </div>
+  <div class="option-section">
+  {{!-- <ul>
+    <li><div ></div>java</li>
+    <li><div></div>python</li>
+  </ul> --}}
+  </div>
+  {{!-- <div>
+      <button onclick="increaseCounter(this)">Increase Counter</button>
+     <button onclick="dicreaseCounter(this)" style="display: none;">dicrease Counter</button>
+  </div> --}}
+ </div>
+</section>
+  <main class="main-body">
+    <section>
+   <div class="main-left">
+    <div class="head-div">
+    <h2>Are you </h2><h2 class="change-c"> logged </h2><h2> in?</h2>
+    </div>
+    <p>This is because only those who are logged in can communicate on the channel and the channel can identify their owner. 
+      So you log in first and enter the channel.</p>   
+   </div>
+   <div class="main-right">
+    <form action="/" method="post" >
+    <h3>Choose Channel</h3>
+      <label for="semester">Channel Id:</label>
+     
+     <input  name="classId"  >
+      <label for="subject">password:</label>
+    
+       <input type="password" name="password">
+    </select>
+    <label>Enter Name</label>
+    <input value="" name="name" id="name" >
+    <button type="submit" value="submit">Enter</button>
+    
+    </div>
+    </section>
+    </form>
+  </main>
+  <!-- note start -->
+  <div class="scroll">
+   
+
+    <div>
+ {{!-- <button class="left" onclick="scrollwindow1()"><</button> --}}
+    </div>
+    <div class="cover">
+  <div class="window">
+      <div class="prodect">
+       
+          <h1 align="center" >Overview</h1>
+    <p>The workbench is the website that provide a free chatting box for users.This chatting page can
+handle text message ,images,video files,audio files,etc.This website mainly focused on study
+purpose.By using this website users in any where in the world they can communicate easily.This
+service is totally online.
+           </p>
+      </div>
+      
+      <div class="prodect">
+        <h1 align="center" >Security</h1>
+
+        <p>Security is an important consideration in application.This is the 
+          process of determining a user’s identity and forcing users to prove they are who they
+claim to be, usually this involves entering credentials ( username and password) in some sort of
+login or windows.
+
+         </p>
+      </div>
+      <div class="prodect">
+        <h1 align="center" >Features</h1>
+
+        <p>This chatting page can handle text
+message ,images,video files,audio files,etc.This website mainly focused on study purpose.For
+using this website user want to create an account.After creating account a user can open a
+channel .This channel is work as a chating space .It has an exam or text paper feature.It help full
+for teachers to conduct online exams.
+        </p>
+      
+      </div>
+    
+      
+  </div>
+  </div>
+  <div>
+  {{!-- <button class="right" onclick="scrollwindow()">></button> --}}
+  </div>
+    </div>
+  <!-- note end -->
+  <main class="last-section">
+    <section>
+    <div class="features">
+      <h2>Features</h2>
+      <a href="/about">Courses</a><br>
+      <a href="/about">Knoeledge</a><br>
+      <a href="/about">Study packs</a><br>
+      <a href="/about">Programs</a><br>
+      <a href="/about">Exam Cram</a><br>
+    </div>
+    <div class="products">
+      <h2>Products</h2>
+      <a href="/about">Memberships</a><br> 
+      <a href="/about">Our Events</a><br>
+      <a href="/about">Shop</a><br>
+     
+    </div>
+    <div class="ourhub">
+      <h2>Our Hub</h2>
+      <a href="/about">About</a><br>
+      <a href="/about">News</a><br>
+    </div>
+    <div class="support">
+      <h2>Support</h2>
+      <a href="/about">Contact</a><br>
+      <a href="/about">Terms of Use</a><br>
+      <a href="/about">Privacy policy</a><br>
+    </div>
+    </section>
+    <div class="company-name">
+    {{!-- <samp>Design and Development</samp><span> LogicalBot</span> --}}
+    </div>
+  </main>
+  <div>
+    
+  </div>
+  </div>
+  <script>
+    async function increaseCounter(valueI) {
+      const followStutes=true
+        const response = await fetch('/api/increase', { method: 'POST', headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+      
+       });
+         console.log(valueI.nextElementSibling)
+        valueI.style.display="none"
+        valueI.nextElementSibling.style.display="block"
+    }
+     async function dicreaseCounter(valueI) {
+        const followStutes=false
+        const response = await fetch('/api/increase', { method: 'POST', headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+      
+       });
+         console.log(valueI.nextElementSibling)
+        valueI.style.display="none"
+        valueI.previousElementSibling.style.display="block"
+    }
+  </script>
+<script>
+   
+   // Function to handle search
+    async function search() {
+      const searchTerm = document.getElementById('searchInput').value;
+      const resultsDiv = document.querySelector('.option-section');
+   if(searchTerm.length!=0){
+      try {
+        // Send a request to your backend API endpoint
+        const response = await fetch(`/search?q=${encodeURIComponent(searchTerm)}`);
+        const data = await response.json();
+
+        // Display results
+        resultsDiv.innerHTML = '';
+
+        if (data.length === 0) {
+          resultsDiv.innerHTML = 'No results found.';
+        } else {
+         
+         let lastvalue=data.map((list)=>{
+          {{!-- console.log(list.username) --}}
+          const color="blue"
+          return `<li><div style="background: url(${list.ProfileImage});   background-repeat: no-repeat;
+  background-size: 100% 100%;" '></div>`+"<p  onclick='Givevalue(this)'>"+ list.className + "</p>" +"</li>"
+         })
+         resultsDiv.innerHTML ="<ul>" + lastvalue.join('') + "</ul>";
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+      }
+     if(searchTerm.length===0){
+      console.log("nooo")
+       resultsDiv.innerHTML = '';
+     }
+    }
+    function Givevalue(list){
+      const searchTerm = document.getElementById('searchInput');
+      const resultsDiv = document.querySelector('.option-section');
+      searchTerm.value=list.innerHTML
+      resultsDiv.innerHTML = '';
+    console.log(list.innerHTML) 
+    }
+    function searched(){
+       const searchTerm = document.getElementById('searchInput').value;
+       try{
+        window.location.href=`/Searchresult/${encodeURIComponent(searchTerm)}`
+       }catch(error){
+        console.error("error dictect",error)
+       }
+    }
+</script>
+  <script>
+    const maindiv=document.getElementById("mobile-slide");
+    function clickbutton(){
+      console.log("click")
+  maindiv.classList.remove("empty");
+  maindiv.classList.add('mobile-slide')
+    }
+    function onbody(){
+        console.log("click")
+        maindiv.classList.remove("mobile-slide");
+  maindiv.classList.add('empty')
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+@font-face {
+    font-family: Myfont;
+    src: url(/font/interbureausemibold.ttf);
+}
+.Openpofile{
+    width: 400px;
+    height: 500px;
+    background-color: rgba(47, 49, 54, 1);
+    position: fixed;
+    right: 20px;
+    z-index: 10;
+    top: 100px;
+    border-radius: 20px;
+}
+.editdpANDname{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#dpLOgo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.editdpANDname p{
+    font-family: Myfont;
+    font-size: 30px;
+    margin: 0;
+}
+.Aboutleader{
+    padding: 0 30px;
+    display: flex;
+}
+.privatesection{
+    color: rgb(16, 223, 255);
+    padding-left: 80px;
+}
+.Openpofile h5{
+    font-size: 18px;
+    margin: 5px 0;
+}
+.Openpofile p{
+    margin-left: 8px;
+}
+.DetailfollowANDaddnewfeature{
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+}
+.Detailfollow{
+    width: 70%;
+    padding: 0 30px;
+}
+.addnewfeature{
+    width: 30%;
+    height: 100%;
+}
+.featureForporfile{
+    display: flex;
+    flex-direction: row;
+}
+.collectoniconForpofile{
+    width: 40px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.featureForporfile i{
+    color: #666666;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.selectbuttonForpofile{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.editbutton{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editbutton button{
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 1);
+    color: white;
+    cursor: pointer;
+}

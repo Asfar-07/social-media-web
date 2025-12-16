@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Selection Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="/For-Class_xcss/Class_Header.css">
+    <link rel="stylesheet" href="/For-Class_xcss/Class_Main.css">
+
+  </head>
+  <body style="color: {{ MainDT.MainFondColor1}};">
+     
+     <div class="main">
+      {{#if MainDT.LeftsideCode2}}
+      <div class="left-main" id="left-main" style="background: linear-gradient( {{MainDT.LeftsideCode1}},{{ MainDT.LeftsideCode2}});">
+        {{else}}
+     <div class="left-main" id="left-main" style="background-color: {{MainDT.LeftsideCode1}};">
+      {{/if}}
+      <div class="Left_topX" >
+          <header id="chat" onclick='display_chats()'  class="selection_btn">CHAT</header>
+ <div></div>
+    <header id="exam" onclick='display_chats2()' class="selection_btn">EXAMINATION</header>
+   <header id="pol" class="empty" onclick='display_chats3()'>live</header>
+
+      </div>
+ <div class="Left_bottomY">
+<div class="Left_bottomY-main" id="Left_bottomY-main" style="display: none; background-color: {{ MainDT.LeftsideCode1}};">
+  <div class="Left_bottomY-main-div">
+    <i class="fa-solid fa-clipboard-question"></i>
+    <div>EXAMINATION</div>
+    <div><input type="checkbox"></div>
+  </div>
+  <div class="Left_bottomY-main-div">
+<i class="fa-solid fa-film"></i>
+    <div>LIVE</div>
+    <div><input type="checkbox" ></div>
+  </div>
+  <div class="Left_bottomY-main-div">
+  <i class="fa-solid fa-gamepad"></i>
+    <div>GAMES</div>
+    <div><i class="fa-solid fa-lock" style="color: #ffffff;"></i></div>
+  </div>
+  <div class="Left_bottomY-main-buttom"><button>ok</button></div>
+</div>
+ </div>
+
+     </div>
+   <div class="right_body" id="right_body" style="background: url({{MainDT.MainbodyImage}});   background-repeat: no-repeat;
+  background-size: 100% 100%;" >
+</div>
+     <div class="right-main" id="right-main" >
+      <div class="Peaker_color" id="Peaker_color">
+       <header >
+        <div>ColorMode</div>
+        <div onclick="Open_Color()"><i class="fa-regular fa-rectangle-xmark"></i></div>
+      </header>
+       <div class="collection_picker">
+       <div class="Peaker_Div"> <p>Header:</p><div class="Peaker_mAin" ><div><input type="color" value='{{MainDT.HeaderCode1}}' class="Header_mark">{{#if MainDT.HeaderCode2}}<input type="color"  class="Header_mark" id="Header_mark2" value='{{MainDT.HeaderCode2}}'>{{/if}}</div><div class="cancel_" onclick="Remove_COLor(this)">x</div><div onclick="ADD_COLor(this)">+</div></div></div>
+       <div class="Peaker_Div"><p>Left_side:</p><div class="Peaker_mAin"><div><input type="color" value='{{MainDT.LeftsideCode1}}' class="Rightside_mark">{{#if MainDT.LeftsideCode2}}<input type="color" value='{{MainDT.LeftsideCode2}}' class="Rightside_mark" id="Rightside_mark2">{{/if}}</div><div class="cancel_" onclick="Remove_COLor(this)">x</div><div onclick="ADD_COLor(this)">+</div></div></div>
+       <div class="Peaker_Div"> <p>Main:</p><div class="Peaker_mAin"><div class="pickimg"><label for="imgbody">M</label><input type="file" id="imgbody" class="empty" ></div><div><input type="color" value="{{MainDT.MainbodyCode}}" class="Main_bodt"></div></div></div>
+       <div class="Peaker_Div"> <p>Input:</p><div class="Peaker_mAin"><div><input type="color" value='{{MainDT.inputCode1}}' class="inputpicker">{{#if MainDT.inputCode2}}<input type="color" value='{{MainDT.inputCode2}}' class="inputpicker" id="inputpicker2">{{/if}}</div><div class="cancel_" onclick="Remove_COLor(this)">x</div><div onclick="ADD_COLor(this)">+</div></div></div>
+       <div class="Peaker_Div"> <p>MSGbox:</p><div class="Peaker_mAin" ><div><input type="color" value='{{MainDT.MSgCode1}}' class="MsgPicker">{{#if MainDT.MSgCode2}}<input type="color" value='{{MainDT.MSgCode2}}' class="MsgPicker">{{/if}}</div></div></div>
+       <div class="Peaker_Div"> <p>FontColor:</p><div class="Peaker_mAin" ><div><input type="color" value='{{MainDT.MainFondColor1}}' class="FontPicker">{{#if MainDT.MainFondColor2}}<input type="color" value='{{MainDT.MainFondColor2}}' class="FontPicker">{{/if}}</div></div></div>
+       </div>
+       <div class="Peaker_Buttom"><button onclick="ReseatColor()">Reset</button> <button onclick="set_Color()">Set</button></div>
+      </div>
+      {{#if MainDT.HeaderCode2}}
+      <header class="proFile-MNgP" id="proFile-MNgP" style="background: linear-gradient(to right, {{MainDT.HeaderCode1}},{{ MainDT.HeaderCode2}});">
+        {{else}}
+        <header class="proFile-MNgP" id="proFile-MNgP" style="background:{{MainDT.HeaderCode1}}">
+        {{/if}}
+        <div class="proFile-MNgP_L" onclick="Profile_deatil()">
+          <div >
+             {{#if profileimg}}
+         <img id="dpLOgo_Main" src={{this.profileimg}} >
+         {{else}}
+           <img id="dpLOgo_Main" src="/images/a4351a3afc4a48c27a584ce48d3a6dcd.png" >
+         {{/if}}
+           </div>
+         {{#each classdata}}
+      <div id="classname" >{{this.className}}</div>
+   {{/each}}
+        </div>
+        <div class="proFile-MNgP_R">
+          {{!-- following session --}}
+   {{#if userdata}}
+   {{#if leader}}
+   {{else}}
+   <div class="proFile-MNgP_R_follow">
+    {{#if followdata }}
+  <button   onclick="dicreaseCounter(this)">Unfollow</button>
+  {{else}}
+     <button id="follow"  onclick="increasefollow(this)" >Follow</button>
+          {{/if}}
+   </div>
+     {{/if}}
+     {{/if}}
+     {{!-- following session end --}}
+     <div onclick="Open_Color()"><i class="fa-solid fa-fill-drip"></i></div>
+        <div><i class="fa-solid fa-house"></i></div>
+        <div onclick="NewADD_action()"><i class="fa-solid fa-plus"></i></div>
+        </div>
+      </header>
+      <header class="empty" id="ProFile_Full-D" style="background-color:{{MainDT.HeaderCode1}} ;">
+        <div class="cancel" onclick="Profile_deatil2()"><i class="fa-regular fa-rectangle-xmark"></i></div>
+        <div class="proFile-MNgP_Full">
+          {{#if profileimg}}
+         <img id="dpLOgo" src={{this.profileimg}} >
+         {{else}}
+           <img id="dpLOgo" src="/images/a4351a3afc4a48c27a584ce48d3a6dcd.png" >
+         {{/if}}
+         {{#each classdata}}
+      <div id="classname" >{{this.className}}</div>
+   {{/each}}
+     <label for="fileInput2" id="customFileLabel">Edit</label>
+    <input type="file" id="fileInput2" onchange="updateFileName(this)" style="display: none;" />
+        </div>
+         <div class="Profile-Full_Main">
+      <div  class="Profile-Full_Main-L">
+        <div>
+          <h3>Leader</h3>
+        <p>Asfar</p>
+        </div>
+        <div>
+          <h3>Follower</h3>
+         {{#each All_fOLowdata}}
+          <p>{{this.username}} ( {{this.email}} ) !</p>
+         {{/each}}
+        </div>
+      </div>
+      <div  class="Profile-Full_Main-R">
+        <div class="Profile-Full_Main-R-top">
+          <h4>Private</h4><p>(Only change after 60day) </p>
+          {{#if MainDT.Private}}
+          <input type="checkbox" id="CheckPrivate" checked>
+          {{else}}
+          <input type="checkbox" id="CheckPrivate" >
+          {{/if}}
+          </div> 
+        <div class="Profile-Full_Main-R-bottom">
+          <div><a href="/"><i class="fa-solid fa-house"></i></a></div>
+        <div><i class="fa-solid fa-plus"></i></div></div>
+        </div>
+    </div>
+        </header>
+     <div class="rightchat" id="right-chat">
+    
+
+
+   {{!-- id & name diclire --}}
+    {{#each username_user}} 
+     <div id="name" class="name">{{this}}</div>
+   
+    {{/each}}
+    {{#each classid}} 
+     <div id="classid" class="empty">{{this}}</div>
+   
+    {{/each}}
+      {{!-- end id & name diclire --}}
+ <div class="message" id="message">{{!message section}}
+
+      {{#each classdata}}
+
+  {{#if this.check}}{{!--user check if--}}
+<div class="right-messsage">
+
+
+    {{#if this.message}}
+    <div  class="textmessage"  id="textmessage" style="background-color:{{this.MSgCode1}};"  >
+      <div class="Main_textmessage">
+       <div id="username" class="username" >{{this.username}}</div>
+       {{#if this.admin}}
+       <div class="Admin_point">admin</div>
+       {{/if}}
+      </div>
+      <div class="Main_message_area">{{this.message}}</div>
+       </div>
+    {{/if}}
+
+
+    {{#if this.Image}}
+    <div  class="image" id="image" style="background-color:{{this.MSgCode1}};" > 
+       <div  class="username" >{{this.username}}</div>
+    <div></div>
+      <a  href={{this.Image}} >{{this.originalname}}</a>
+      </div>
+  {{/if}}
+
+
+</div>
+  {{else}}{{!--user check if else--}}
+ 
+    {{#if this.message}}
+    <div  class="textmessage"  id="textmessage" style="background-color:{{this.MSgCode1}};"  >
+      <div class="Main_textmessage">
+       <div id="username" class="username" >{{this.username}}</div>
+       {{#if this.admin}}
+       <div class="Admin_point">admin</div>
+       {{/if}}
+      </div>
+      <div class="Main_message_area">{{this.message}}</div>
+       </div>
+    {{/if}}
+
+
+
+    {{#if this.Image}}
+    <div  class="image" style="background-color:{{this.MSgCode1}};" > 
+       <div  class="username" >{{ this.username}}</div>
+    <div></div>
+      <a  href={{this.Image}} >{{this.originalname}}</a>
+      </div>
+  {{/if}}
+
+
+
+      {{/if}}{{!--user check if end--}}
+    {{/each}}
+ 
+ </div>{{!end message section}}
+
+    <div class="socket-message" id="socket-message">
+    </div>
+
+
+  <div class="Typing_ArEa">{{!typig section}}
+ 
+   
+    {{#if userdata}}
+    {{#if MainDT.inputCode2}}
+    <div class="Typing_ArEa_main" id="Typing_ArEa_main" style="background: linear-gradient(to right,{{MainDT.inputCode1}},{{MainDT.inputCode2}});">
+    {{else}}
+  <div class="Typing_ArEa_main" id="Typing_ArEa_main" style="background-color: {{MainDT.inputCode1}};">
+    {{/if}}
+    <div contenteditable="true" data-text="Message" id="input-field"></div>
+     <label for="image-input"><i class="fa-solid fa-link"></i></label>
+     <input type="file" id="image-input" >
+      <button id="submit-button" type="submit"><i class="fa-regular fa-paper-plane"></i></button>
+  </div>
+      {{else}}
+    <p>you don't login so you can not chat</p> 
+    
+      {{/if}}
+  
+  </div>{{!end typig section}}
+     </div>{{!rightcha div end}}
+
+     {{!-- exam section --}}
+     <div class="right-exam">
+  <div class="chatempty" id="right-exam">
+    <h1 bgcolor="white">Exam</h1>
+     {{#if leader}}
+ 
+<div class="qsdiv">
+  <form action="/exam" method="POST">
+  <div class="createexam" id="createexam">
+ <input class="newexam" id="newexam" type="button" onclick="newinput()" value="+" required>
+ <div>
+  
+ </div>
+  <div class="addinput" id="addinput">
+   <label for="qs" id="qslabel">qs1</label>
+
+  <input class="examtext" type="text" name="qs1" id="examtext" placeholder="qs" required>
+  <label for="mark" class="marklabel">mark</label>
+  <input class="mark" type="number" name="mark1" id="marktext" placeholder="0" required>
+  {{!-- <button id="submit-exam" class="submitexam" type="submit">✅</button> --}}
+  </div>
+  
+ 
+  </div>
+  <div class="lastlook">
+    <label >Time(m):</label>
+    <input type="number" name="Time" placeholder="0"  required>
+    <label>Examname:</label>
+    <input type="text" name="Examname" placeholder="examname"  required>
+  <button type="submit" class="examsubmit">submit</button>
+  </div>
+  </form>
+</div>
+ 
+  {{/if}}
+ 
+  
+  
+{{#each examdata}}
+<div class="examdata">
+  <h2 style="color: black;">ExamName:{{this.Examname}}</h2>
+   
+       
+     <form action="/answer" method="post" >
+     <input type="text" class="empty" name="Examname" value={{this.Examname}}>
+     {{!-- {{#if leader}} --}}
+ <button type="submit">answer</button>
+ 
+ {{!-- {{/if}} --}}
+     </form>
+    <form action="/qustions" method="post">
+    <input type="text" class="empty" name="Examname" id="Examname" value={{this.Examname}}>
+      <label for="ans">Id&RollNo</label>
+    <input type="text" name="Idnumber" id="rollno" placeholder="0"  required><br>
+     <input type="text" class="empty" name="date" value={{this.adddate}}>
+      <input type="text" name="time" class="empty" value={{this.addtime}}>
+       <input type="text" name="am_pm" class="empty" value={{this.am_pm}}>
+ <button id="ans-submit">Enter</button>
+    </form>
+ 
+ <samp>{{this.createtime}}</samp>
+ <samp id="FinalDate">FinalDate:{{this.addtime}} {{this.am_pm}}</samp>
+      
+</div>
+
+ {{/each}}
+  
+  </div>
+     </div>
+     {{!-- examination session end --}}
+     {{!-- pol session --}}
+     <div class="chatempty" id="right-pol">
+      <div class="chatempty"></div>
+      hello
+     </div>
+     {{!-- pol session end --}}
+    </div>
+    <script>
+ async function increasefollow(valueI){
+ console.log("click") 
+ const followStutes=true
+  const response2 = await  fetch('/follow', {method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+});
+   
+        const response = await fetch('/api/increase', { method: 'POST', headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+      
+       });
+         console.log(valueI.nextElementSibling)
+        valueI.style.display="none"
+        valueI.previousElementSibling.style.display="block"
+
+ 
+   
+}
+ async function dicreaseCounter(valueI) {
+        const followStutes=false
+         const response2 = await  fetch('/follow', {method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+});
+        const response = await fetch('/api/increase', { method: 'POST', headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+      
+       });
+         console.log(valueI.nextElementSibling)
+        valueI.style.display="none"
+        valueI.nextElementSibling.style.display="block"
+    }
+    </script>
+    <script>
+      const CheckBoxP=document.getElementById('CheckPrivate')
+      CheckBoxP.addEventListener("input",async()=>{
+        console.log(CheckBoxP.checked)
+        const PickedValue=CheckBoxP.checked
+        
+    try{
+ const response = await fetch('/ChangePrivate', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({PickedValue})
+});
+if (response.ok) {
+  console.log('Data saved successfully');
+} else {
+  console.log('Error:', response.status);
+}
+} catch (error) {
+  console.log('Error:', error);
+}
+      })
+    </script>
+     <script src="/javascripts/PickColor.js"></script>
+    
+  </body>
+  
+    <script src="/javascripts/Help-Profile.js"></script>
+      <script> 
+        const textInput = document.getElementById('input-field');
+              submitButton.addEventListener('click', () => {
+          const imageFile = imageInput.files[0];
+        
+          if(imageFile){
+            sendData2( imageFile);
+            imageInput.value=""
+        }else{
+          console.log("no data")
+        }
+        const textData = textInput.textContent;
+        if(textData){
+          sendData(textData);
+          textInput.textContent = '';
+        }
+        
+        });
+        
+        const sendData2 = async (image) => {
+            
+          try {
+            const formData = new FormData();
+           
+            formData.append('image', image);
+            const response = await fetch('/results', {
+              method: 'POST',
+              body: formData
+            });
+        
+            if (response.ok) {
+              console.log('Data saved successfully');
+            } 
+             } catch (error) {
+            console.log('Error:', error);
+          }
+        
+        };
+        const sendData = async (text) => {
+        
+        
+          try {
+             const formData = new FormData();
+            formData.append('text', text);
+            
+        
+            const response = await fetch('/results', {
+              method: 'POST',
+              body: formData
+            });
+        
+            if (response.ok) {
+              console.log('Data saved successfully');
+            } else {
+              console.log('Error:', response.status);
+            }
+          } catch (error) {
+            console.log('Error:', error);
+          }
+        };
+        </script>
+    <script src="/socket.io/socket.io.js"></script>
+   
+    <script src="/javascripts/sockethelp.js"></script>
+   
+   <script src="/javascripts/chat.js"></script>
+  
+</html>

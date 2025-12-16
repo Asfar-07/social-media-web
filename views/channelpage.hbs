@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/Channelpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/Exam.css">
+    <link rel="stylesheet" href="/stylesheets/Viewprofile.css">
+    <link rel="stylesheet" href="/stylesheets/Forcolorpicker.css">
+    <link rel="stylesheet" href="/stylesheets/FoeGame.css">
+    <link rel="stylesheet" href="/stylesheets/video.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style=" color:{{MainDT.MainFondColor}}; background-color: {{MainDT.MSgCode}};" >
+{{!-- id & name diclire --}}
+     
+     {{#if leader}}
+    <div id="checkleader" style="display: none;">true</div>
+    {{else}}
+    <div id="checkleader" style="display: none;">false</div>
+    {{/if}}
+    {{#each username_user}} 
+     <div id="name" class="empty">{{this}}</div>
+   
+    {{/each}}
+    {{#each classid}} 
+     <div id="classid" class="empty">{{this}}</div>
+   
+    {{/each}}
+    <div id="check-feature" style="display: none;">{{MainDT.feature}}</div>
+{{!-- end id & name diclire --}}
+    <div class="Peaker_color" id="Peaker_color" style="display: none;">
+        <header >
+                <div>ColorMode</div>
+                <div onclick="Open_Color()"><i class="fa-regular fa-rectangle-xmark"></i></div>
+       </header>
+        <div class="collection_picker">
+               <div class="Peaker_Div"> <p>LEFTSIDE:</p><div class="Peaker_mAin" ><div><input type="color" value='{{MainDT.HeaderCode1}}' class="Header_mark">{{#if MainDT.HeaderCode2}}<input type="color"  class="Header_mark" id="Header_mark2" value='{{MainDT.HeaderCode2}}'>{{/if}}</div><div class="cancel_" onclick="Remove_COLor(this)">x</div><div onclick="ADD_COLor(this)">+</div></div></div>
+               <div class="Peaker_Div"><p>ICON:</p><div class="Peaker_mAin"><div><input type="color" value='{{MainDT.LeftsideCode1}}' class="Rightside_mark">{{#if MainDT.LeftsideCode2}}<input type="color" value='{{MainDT.LeftsideCode2}}' class="Rightside_mark" id="Rightside_mark2">{{/if}}</div><div class="cancel_" onclick="Remove_COLor(this)">x</div><div onclick="ADD_COLor(this)">+</div></div></div>
+               <div class="Peaker_Div"> <p>MSGAREA:</p><div class="Peaker_mAin"><div class="pickimg"><label for="imgbody">M</label><input type="file" id="imgbody" class="empty" ></div><div><input type="color" value="{{MainDT.MainbodyCode}}" class="Main_bodt"></div></div></div>
+               <div class="Peaker_Div"> <p>INPUT:</p><div class="Peaker_mAin"><div><input type="color" value='{{MainDT.inputCode1}}' class="inputpicker">{{#if MainDT.inputCode2}}<input type="color" value='{{MainDT.inputCode2}}' class="inputpicker" id="inputpicker2">{{/if}}</div><div class="cancel_" onclick="Remove_COLor(this)">x</div><div onclick="ADD_COLor(this)">+</div></div></div>
+               <div class="Peaker_Div"> <p>BACKAREA:</p><div class="Peaker_mAin" ><div><input type="color" value='{{MainDT.MSgCode1}}' class="MsgPicker">{{#if MainDT.MSgCode2}}<input type="color" value='{{MainDT.MSgCode2}}' class="MsgPicker">{{/if}}</div></div></div>
+               <div class="Peaker_Div"> <p>FONT:</p><div class="Peaker_mAin" ><div><input type="color" value='{{MainDT.MainFondColor1}}' class="FontPicker">{{#if MainDT.MainFondColor2}}<input type="color" value='{{MainDT.MainFondColor2}}' class="FontPicker">{{/if}}</div></div></div>
+        </div>
+        <div class="Peaker_Buttom">
+            <button onclick="ReseatColor()">Reset</button> <button onclick="set_Color()">Set</button>
+        </div>
+       </div>
+
+
+    <section style="display: none;" id="Profile"  class="Openpofile">
+        <div class="editdpANDname">
+           <label for="selectnewdp">
+               {{#if profileimg}}
+         <img id="dpLOgo" src={{this.profileimg}} >
+         {{else}}
+           <img id="dpLOgo" src="/images/a4351a3afc4a48c27a584ce48d3a6dcd.png" >
+         {{/if}}
+             </label> 
+             <input type="file" id="selectnewdp" onchange="updateFileName(this)" style="display: none;">
+             
+            <p contenteditable="true" id="editechannelname">{{MainDT.className}}</p>
+        </div>
+        <div class="Aboutleader">
+            <div class="leaderinfo">
+                <h5>Leader</h5>
+                <p>{{MainDT.email}}</p>
+            </div>
+             {{#if leader}}
+            <div class="privatesection">
+                private:  {{#if MainDT.Private}}
+          <input type="checkbox" id="CheckPrivate" checked>
+          {{else}}
+          <input type="checkbox" id="CheckPrivate" >
+          {{/if}}
+            </div>
+            {{/if}}
+        </div>
+        <div class="DetailfollowANDaddnewfeature">
+            <div class="Detailfollow">
+                <h5>Following</h5>
+                {{#each All_fOLowdata}}
+          <p>{{this.username}} ( {{this.email}} ) !</p>
+         {{/each}}
+            </div>
+            {{#if leader}}
+            <div class="addnewfeature">
+                <div class="featureForporfile">
+                   {{#if leader}}
+                    <div class="collectoniconForpofile" style="color: {{MainDT.LeftsideCode}};">
+                      <i class="fa-solid fa-message"></i>
+                      <i class="fa-solid fa-gamepad"></i>
+                      <i class="fa-solid fa-clapperboard"></i>
+                      <i class="fa-solid fa-clipboard-list"></i>
+                      {{!-- <i class="fa-solid fa-circle-plus"></i> --}}
+                    </div>
+                    <div class="selectbuttonForpofile">
+                      <input type="checkbox" checked>
+                      <input type="checkbox" id="feature-game">
+                      <input type="checkbox" id="feature-video">
+                      <input type="checkbox" id="feature-exam">
+                      {{!-- <input type="checkbox"> --}}
+                    </div>
+                    {{/if}}
+                </div>    
+            </div>
+            {{/if}}
+        </div>
+        <div class="editbutton">
+            {{#if leader}}
+            <button onclick=" FinalSubmitProfile()">Submit</button>
+            {{/if}}
+        </div>
+    </section>
+
+
+    <header class="controller">
+        <a href="/accounts"><div class="GoAccounts"><i class="fa-solid fa-user"></i></div></a>
+        <a href="/"><div class="GoHome" style="background-color: {{MainDT.MainbodyCode}};"><i class="fa-solid fa-house-chimney"></i></div></a>
+        <a href=""><div class="GoReports" style="background-color: {{MainDT.MainbodyCode}};"><i class="fa-solid fa-triangle-exclamation"></i></div></a>
+    </header>
+    <main>
+        <section class="leftmain" style="background-color: {{MainDT.HeaderCode}};">
+            {{#if leader}}
+            <label for="changethem" class="topmainImage" >
+              {{#if MainDT.theme}}
+               <img src="{{MainDT.theme}}" width="100%" height="160px" id="Mainthem">
+              {{else}}
+              <img src="/images/244-2446316_computer-icons-camera-photography-area-text-png-add.png" width="100%" height="160px" id="Mainthem">
+              {{/if}}
+              </label>
+            {{else}}
+            <label  class="topmainImage" >
+              {{#if MainDT.theme}}
+               <img src="{{MainDT.theme}}" width="100%" height="160px" id="Mainthem">
+              {{else}}
+              <img src="/images/244-2446316_computer-icons-camera-photography-area-text-png-add.png" width="100%" height="160px" id="Mainthem">
+              {{/if}}
+              </label>
+            {{/if}}
+            <input type="file" id="changethem" onchange="changethem(this)" style="display: none;">
+            <div class="feature">
+              <div class="collectonicon" style="color: {{MainDT.LeftsideCode}};">
+                <i class="fa-solid fa-message" id="chatBtn" onclick="chatBtn()"></i>
+                <i class="fa-solid fa-gamepad" id="gamesBtn" onclick="gamesBtn()"></i>
+                <i class="fa-solid fa-clapperboard" id="videoBtn" onclick="videoBtn()"></i>
+                <i class="fa-solid fa-clipboard-list" id="examBtn" onclick="examBtn()" ></i>
+                {{#if leader}}
+                <i class="fa-solid fa-circle-plus"></i>
+                {{/if}}
+              </div>
+              <div class="selectbutton">
+                <p id="chatBtn" onclick="chatBtn()">Messages</p>
+                <p id="gamesBtn" onclick="gamesBtn()">Games</p>
+                <p id="videoBtn" onclick="videoBtn()">Video</p>
+                <p id="examBtn" onclick="examBtn()">Exam</p>
+                {{#if leader}}
+                <p onclick="OpenPofile()">Add New</p>
+                {{/if}}
+              </div>
+            </div>
+        </section>
+        <section class="rightmain" style="background-color: {{MainDT.MSgCode}};">
+            <div class="ProfileHeader" id="ProfileHeader" style="background-color: {{MainDT.MainbodyCode}};">
+                <section class="Seeprofile">
+                    <h2 id="viewchannelname">{{MainDT.className}}</h2>
+
+                    <div onclick="OpenPofile()" class="seedp">
+                        {{#if profileimg}}
+         <img id="dpLOgo_Main" width="45px" height="45px" src="{{this.profileimg}}" >
+         {{else}}
+           <img id="dpLOgo_Main" src="/images/a4351a3afc4a48c27a584ce48d3a6dcd.png" width="45px" height="45px">
+         {{/if}}
+                        </div>
+                    <div class="MainIcons">
+                          {{#if leader}}
+                        <div>
+                            <i class="fa-solid fa-paintbrush" onclick="Open_Color()"></i>
+                        </div>
+                            {{/if}}
+                    </div>
+                     {{#if userdata}}
+   {{#if leader}}
+   {{else}}
+   <div class="proFile-MNgP_R_follow">
+    {{#if followdata }}
+  <button   onclick="dicreaseCounter(this)">Unfollow</button>
+  {{else}}
+     <button id="follow"  onclick="increasefollow(this)" >Follow</button>
+          {{/if}}
+   </div>
+     {{/if}}
+     {{/if}}
+                </section>
+            </div>
+            <div class="Mainmessagebody" id="Mainmessagebody" style="  background-color: {{MainDT.MainbodyCode}}; background-size: 100% 100%;
+    background-repeat: no-repeat;  background-image:url({{MainDT.MainbodyImage}}); ">
+            <section class="messagearea" id="chatContent" >
+                 {{#each classdata}}
+
+                  <!-- USERMESSAGE -->
+                   {{#if this.check}}
+                   {{#if this.message}}
+                <div class="messagesetMe">
+
+                    <div class="messagegiveposition">
+                        <div class="usernameAndusertest">
+                            <div class="Username"><p>Me</p></div>
+                            <div class="Userdata"><p>{{this.message}}</p></div>
+                        </div>
+                        <div class="userDB">
+                            {{#if this.ProfileImage}}
+                            <img src="{{this.ProfileImage}}" width= "60px"
+                            height="60px">
+                            {{else}}
+                            <img src="/images/149071.png" width= "60px"
+                            height="60px">
+                            {{/if}}
+                        </div>
+                    </div>
+
+                </div>
+                {{/if}}
+                {{#if this.Image}}
+                <div class="messagesetMe">
+                    <div class="messagegiveposition">
+                        <div class="usernameAndusertest">
+                            <div class="Username"><p>ME</p></div>
+                            <div class="Userdata"><a href="{{this.Image}}"><img src="/images/Blur-effect-on-picture.jpg" ></a></div>
+                        </div>
+                        <div class="userDB">
+                            {{#if this.ProfileImage}}
+                            <img src="{{this.ProfileImage}}" width= "60px"
+                            height="60px">
+                            {{else}}
+                            <img src="/images/149071.png" width= "60px"
+                            height="60px">
+                            {{/if}}
+                        </div>
+                    </div>
+                </div> 
+                {{/if}}
+                {{else}}
+
+                <!-- USERMESSAGECLOSE -->
+            <!-- ANOTHERMESSAGES -->
+            {{#if this.message}}
+                <div class="messagesetanother">
+                    <div class="messagegiveposition">
+                        <div class="userDB">
+                            {{#if this.ProfileImage}}
+                            <img src="{{this.ProfileImage}}" width= "60px"
+                            height="60px">
+                            {{else}}
+                            <img src="/images/149071.png" width= "60px"
+                            height="60px">
+                            {{/if}}
+                        </div>
+                        <div class="usernameAndusertest">
+                            <div class="Username"><p>{{this.username}}</p></div>
+                            <div class="Userdata"><p>{{this.message}}</p></div>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+             {{#if this.Image}}
+                <div class="messagesetanother">
+                    <div class="messagegiveposition">
+                        <div class="userDB">
+                             {{#if this.ProfileImage}}
+                            <img src="{{this.ProfileImage}}" width= "60px"
+                            height="60px">
+                            {{else}}
+                            <img src="/images/149071.png" width= "60px"
+                            height="60px">
+                            {{/if}}
+                        </div>
+                        <div class="usernameAndusertest">
+                            <div class="Username"><p>{{this.username}}</p></div>
+                            <div class="Userdata"><a href="{{this.Image}}"><img src="/images/Blur-effect-on-picture.jpg" ></a></div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                <!-- ANOTHERMESSAGESCLOSE -->
+
+              {{/if}}
+
+                {{/each}}
+
+                     <div class="Typing_ArEa">
+                    <div class="Typing_ArEa_main" id="Typing_ArEa_main" style="background-color: {{MainDT.inputCode}};">
+                        <div>
+                            <textarea placeholder="Type here..." id="input-field"></textarea>
+                        </div>
+                        <div  class="Testareaicons">
+                            <label for="image-input"><i class="fa-solid fa-folder-open"></i></label>
+                            <input type="file" id="image-input" style="display: none;" >
+                            <button id="submit-button" type="submit" onclick="Senddata()" ><i class="fa-regular fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="Examearea" id="examContent" style="display: none;">
+                <div class="right-exam">
+                    <div class="chatempty" id="right-exam">
+                       <h1 bgcolor="white">Exam</h1>
+                       <!-- {{#if leader}} -->
+                   
+                            <div class="qsdiv">
+
+                                <form action="/exam" method="POST">
+                                    <div class="createexam" id="createexam">
+
+                                        <input class="newexam" id="newexam" type="button" onclick="newinput()" value="+" required>
+
+                                    
+                    
+
+
+                    
+
+                                    <div class="lastlook">
+
+                                        <label >Time(m):</label>
+                                        <input type="number" name="Time" placeholder="0"  required>
+                                        <label>Examname:</label>
+                                        <input type="text" name="Examname" placeholder="examname"  required>
+                                        <button type="submit" class="examsubmit">submit</button>
+
+                                    </div>
+                                    
+                                     <div class="addinput" id="addinput">
+
+                                        <label for="qs" id="qslabel">qs1</label>
+                                        <input class="examtext" type="text" name="qs1" id="examtext" placeholder="qs" required>
+                                        <label for="mark" class="marklabel">mark</label>
+                                        <input class="mark" type="number" name="mark1" id="marktext" placeholder="0" required>
+                                         <!-- {{!-- <button id="submit-exam" class="submitexam" type="submit">✅</button> --}} -->
+                                     
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                   
+                    <!-- {{/if}} -->
+                   
+                    
+                    
+                  <!-- {{#each examdata}} -->
+                            <div class="examdata">
+
+                                <h2 style="color: black;">ExamName:{{this.Examname}}</h2>
+
+                                <form action="/answer" method="post" >
+
+                                    <input type="text" class="empty" name="Examname" value={{this.Examname}}>
+                                    <!-- {{!-- {{#if leader}} --}} -->
+                                    <button type="submit">answer</button>
+                                    <!-- {{!-- {{/if}} --}} -->
+
+                                </form>
+
+                                <form action="/qustions" method="post">
+
+                                    <input type="text" class="empty" name="Examname" id="Examname" value={{this.Examname}}>
+                                    <label for="ans">Id&RollNo</label>
+                                    <input type="text" name="Idnumber" id="rollno" placeholder="0"  required><br>
+                                    <input type="text" class="empty" name="date" value={{this.adddate}}>
+                                    <input type="text" name="time" class="empty" value={{this.addtime}}>
+                                    <input type="text" name="am_pm" class="empty" value={{this.am_pm}}>
+                                    <button id="ans-submit">Enter</button>
+
+                                </form>
+                   
+                                <samp>{{this.createtime}}</samp>
+                                <samp id="FinalDate">FinalDate:{{this.addtime}} {{this.am_pm}}</samp>
+                        
+                            </div>
+                  
+                   <!-- {{/each}} -->
+                    
+                    </div>
+                </div>
+            </section>
+            <section id="videoContent" style="display: none;">
+
+                <div class="addvideobutton">
+                    {{#if leader}}
+                    <label for="pickvideo" id="addvideobutton">ADD VIDEO</label> 
+                    {{/if}}
+                </div>
+                <div class="addnewvideofile" id="addnewvideofile" style="display:  none;">
+                    <form action="/addvideo" style="overflow-x: auto;" method="post" enctype="multipart/form-data">
+                        <div class="forthumbnail">
+                            <label for="Thumbnail" id="viewthumnail"><i class="fa-regular fa-image"></i></label>
+                            <input type="file" id="Thumbnail" name="image" onchange="Macktumbnail()" style="display: none;" accept="image/*">
+                        </div>
+                        <div class="anothervideodetails">
+                            {{!-- <h2 contenteditable="true" >Give Tittle......</h2> --}}
+                            <input type="text" placeholder="Give Tittle" name="tittle">
+                            <label for="">SELECT VIDEO:</label>
+                            <input type="file" id="pickvideo" name="video" onchange="Openvideoform()" accept="video/*">
+                            <label for="">Give Description:</label>
+                            <textarea name="textData" id="" ></textarea>
+                        </div>
+                        <div class="Forvideosubmitbutton">
+                          <a onclick="Openvideoform()">Cancel</a>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                    <div class="collectionvideo">
+                {{#each ListVideo}}
+                    <a href="{{this.Video}}">
+                        <div class="eachvideo" id="eachvideo"  style="background-color: {{this.HeaderCode}};">
+                            <div class="forthumbnail">
+                                <img src="{{this.Thumbnail}}" >
+                            </div>
+                            <div class="forabout">
+                                <h2>{{this.Tittle}}</h2>
+                                <p>{{this.Description}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {{/each}}
+                </div>
+
+            </section>
+            <section id="gamesContent" style="display: none;">
+                <h2 style="margin: 0 30px;">GAMES</h2>
+                <div class="collectiongame">
+                    <div class="eachgame">
+                        <a href="https://poki.com/en/g/subway-surfers#fullscreen">
+                            <img src="/images/646379e8ff0a8d87404db507_SUBWAY_SURFERS_KEY_ART_1920x1080_LANDSCAPE_01.png" width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="eachgame">
+                        <a href="https://poki.com/en/g/up-together#fullscreen">
+                            <img src="/images/up-together.480x.85pc.webp" width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+                <div class="collectiongame">
+                    <div class="eachgame">
+                        <a href="https://poki.com/en/g/stupid-zombies#fullscreen">
+                            <img src="/images/apps.38066.9007199266244575.046d2cc3-89f9-490d-9891-643e014472bb.jpeg" width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="eachgame">
+                        <a href="https://poki.com/en/g/stunt-car-extreme#fullscreen">
+                            <img src="/images/stunt-car-extreme-pc-full-version.jpg" width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </section>
+    </main>
+     <script src="/socket.io/socket.io.js"></script>
+     <script src="/javascripts/sockethelp.js"></script>
+     <script src="/javascripts/Help-Profile.js"></script> 
+     <script src="/javascripts/ForExam.js"></script>
+     <script src="/javascripts/ForDataSend.js"></script>
+     <script src="/javascripts/ForButton.js"></script>
+      <script src="/javascripts/PickColor.js"></script>
+      <script>
+          function Macktumbnail(){
+            const pickedimage=document.getElementById("Thumbnail")
+            const changethumpnail=document.getElementById("viewthumnail")
+            const reader = new FileReader();
+  reader.onload = () => {
+    const imageData = reader.result;
+   changethumpnail.innerHTML=`<img src="${imageData}" >`
+  }
+  reader.readAsDataURL(pickedimage.files[0])
+        }
+        function Openvideoform(){
+            const addvideobutton=document.getElementById("addvideobutton")
+            const  videoform=document.getElementById("addnewvideofile")
+  if(videoform.style.display=="none"){
+   videoform.style.display="flex"
+   addvideobutton.style.display="none"
+  }else{
+    videoform.style.display="none"
+    addvideobutton.style.display=""
+  }
+        }
+      </script>
+     <script>
+      function changethem(input){
+        console.log("click")
+        var fileNameDisplay = document.getElementById("fileNameDisplay");
+var displayThem = document.getElementById("Mainthem");
+
+var fileName = input.files[0];
+if(true){
+var Image_Type=true;
+console.log("true")
+}else{
+alert("Please note,Enter only image AND 1mp image")
+}
+
+if(Image_Type){
+const reader = new FileReader();
+reader.onload = () => {
+const imageData = reader.result;
+displayThem.src=imageData
+Change_Image(imageData)
+}
+reader.readAsDataURL(fileName)
+}
+
+Change_Image=async(imgsrc)=>{
+try{
+const response = await fetch('/updatethem', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+
+body: JSON.stringify({imgsrc})
+});
+if (response.ok) {
+console.log('Data saved successfully');
+} else {
+console.log('Error:', response.status);
+}
+} catch (error) {
+console.log('Error:', error);
+}
+}
+      }
+     </script>
+     <script>
+       async function increasefollow(valueI){
+ console.log("click") 
+ const followStutes=true
+  const response2 = await  fetch('/follow', {method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+});
+   
+        const response = await fetch('/api/increase', { method: 'POST', headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+      
+       });
+         console.log(valueI.nextElementSibling)
+        valueI.style.display="none"
+        valueI.previousElementSibling.style.display="block"
+
+ 
+   
+}
+ async function dicreaseCounter(valueI) {
+        const followStutes=false
+         const response2 = await  fetch('/follow', {method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+});
+        const response = await fetch('/api/increase', { method: 'POST', headers: {
+    'Content-Type': 'application/json'
+  },
+  
+      body: JSON.stringify({followStutes})
+      
+       });
+         console.log(valueI.nextElementSibling)
+        valueI.style.display="none"
+        valueI.nextElementSibling.style.display="block"
+    }
+     </script>
+     <script>
+        // Get reference to the scrollable div
+const scrollableDiv = document.getElementById('Mainmessagebody');
+
+// Function to scroll the div to its end
+function scrollToBottom() {
+    scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
+}
+
+// Scroll to the end when the page loads
+window.onload = function() {
+    scrollToBottom();
+};
+     </script>
+
+
+
+</body>
+</html>

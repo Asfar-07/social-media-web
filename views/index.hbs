@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Image</title>
+</head>
+<body>
+  <input id="text-input" type="text" placeholder="Enter text">
+  <input id="image-input" type="file">
+  <button id="submit-button">Upload</button>
+<img src="uploads\\1689177128163-211370094Bismis dream house.png" width="100px" height="100px" >
+  <script>
+    const submitButton = document.getElementById('submit-button');
+    const textInput = document.getElementById('text-input');
+    const imageInput = document.getElementById('image-input');
+
+    submitButton.addEventListener('click', () => {
+      const textData = textInput.value;
+      const imageFile = imageInput.files[0];
+      sendData(textData, imageFile);
+      textInput.value = '';
+      imageInput.value = '';
+    });
+
+    const sendData = async (text, image) => {
+      try {
+        const formData = new FormData();
+        formData.append('text', text);
+        formData.append('image', image);
+
+        const response = await fetch('/results', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          console.log('Data uploaded successfully');
+        } else {
+          console.log('Error:', response.status);
+        }
+      } catch (error) {
+        console.log('Error:', error);
+      }
+    };
+  </script>
+</body>
+</html>

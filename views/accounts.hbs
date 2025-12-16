@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="/stylesheets/accounts.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+   <div class="imgcontainer">
+    {{#if userdata.ProfileImage}}
+    <label for="userprofiledp"><img src="{{userdata.ProfileImage}}" id="viewdp"></label>
+    <input type="file" id="userprofiledp" style="display: none;" onchange="Changedp(this)">
+    {{else}}
+    <label for="userprofiledp"><img src="/images/149071.png" id="viewdp"></label>
+    <input type="file" id="userprofiledp" style="display: none;" onchange="Changedp(this)">
+    {{!-- <img src="/images/download (1).png" alt="Avatar" class="avatar"> --}}
+   {{/if}}
+    <div class="Namecontainer">{{userdata.username}}</div>
+
+    <div>{{userdata.email}}</div>
+   </div>
+   <div class="main">
+    <h3>MyGroup</h3>
+   <div class="myaccounts">
+        {{#each mychannel}}
+  <div class="each-channel">             {{!--token div--}}
+  <div class="top">                      {{!--token top position div--}}
+    <div>                                {{!--token top main div--}}
+      <div>
+        <button  onclick="setting_part(this)"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div>
+        {{#if this.ProfileImage}}
+         <div class="image" style=" background:url({{ this.ProfileImage}});
+     background-size: 100% 100%;
+    background-repeat: no-repeat;" ></div>
+        {{else}}
+        <div style=" background: url(/images/a4351a3afc4a48c27a584ce48d3a6dcd.jpg);
+     background-size: 100% 100%;
+    background-repeat: no-repeat;" class="image"></div>
+    {{/if}}
+        <h2>{{this.className}}</h2>
+        <p>id:{{this.classId}}</p>
+        <p>1k following</p>
+      </div>
+    </div>                                {{!--token top main div end--}}
+  </div>                                  {{!--token top position div end--}}
+  <div class="bottom">                    {{!--token bottom position div--}}
+    <div>                                 {{!--token bottom main div--}}
+    <p>Enter the way of channel</p>
+    <form action="/accounts" method="post">
+     <input type="text" class="empty" name="className" value={{this.className}}>
+    <input type="text"class="empty" name="classId" value={{this.classId}}>
+    <button><i class="fa-solid fa-circle-arrow-down"></i></button>
+    </form>
+    </div>                                {{!--token bottom end main div--}}
+  </div>                                  {{!--token bottom position div end--}}
+ </div>               {{!--token div end--}}
+ <div class="setting-ac" id="setting-ac">
+  <div>
+    <div><i class="fa-solid fa-trash-can"></i></div>
+    <div>Delect</div>
+  </div>
+  <samp></samp>
+  <div>
+    <div><i class="fa-solid fa-lock"></i></div>
+    <div>Password</div>
+  </div>
+  <samp></samp>
+  <div>
+    <div><i class="fa-solid fa-circle-question"></i></div>
+    <div>Help</div>
+  </div>
+ </div>
+     {{/each}}                    
+   </div>
+     <h3 >Following</h3>
+   <div class="following">
+      {{#each following}}
+  <div class="each-channel">             {{!--token div--}}
+  <div class="top">                      {{!--token top position div--}}
+    <div>                                {{!--token top main div--}}
+      <div>
+        <button><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div>
+        {{#if this.ProfileImage}}
+         <div class="image" style=" background:url({{ this.ProfileImage}});
+     background-size: 100% 100%;
+    background-repeat: no-repeat;" ></div>
+        {{else}}
+        <div style=" background: url(/images/a4351a3afc4a48c27a584ce48d3a6dcd.jpg);
+     background-size: 100% 100%;
+    background-repeat: no-repeat;" class="image"></div>
+    {{/if}}
+        <h2>{{this.className}}</h2>
+        <p>id:{{this.classId}}</p>
+      </div>
+    </div>                                {{!--token top main div end--}}
+  </div>                                  {{!--token top position div end--}}
+  <div class="bottom">                    {{!--token bottom position div--}}
+    <div>                                 {{!--token bottom main div--}}
+    <p>Enter the way of channel</p>
+    <form action="/accounts" method="post">
+     <input type="text" class="empty" name="className" value={{this.className}}>
+    <input type="text"class="empty" name="classId" value={{this.classId}}>
+    <button><i class="fa-solid fa-circle-arrow-down"></i></button>
+    </form>
+    </div>                                {{!--token bottom end main div--}}
+  </div>                                  {{!--token bottom position div end--}}
+ </div>             
+     {{/each}}                      {{!--token div end--}}
+   </div>
+   </div>
+  <script>
+    function setting_part(button){
+       const adjacentDiv = button.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+        console.log(adjacentDiv)
+     if (adjacentDiv.style.display === 'none' || adjacentDiv.style.display === '') {
+            check_another_div();
+            adjacentDiv.style.display = 'flex';
+        } else {
+            adjacentDiv.style.display = 'none';
+        }
+    }
+    function check_another_div(){
+        const anotherdiv=document.querySelectorAll(".setting-ac")
+        anotherdiv.forEach((div)=>{
+            div.style.display = 'none' ;
+         } )
+    }
+  </script>
+  <script>
+    function Changedp(input){
+      const displayDP=document.getElementById("viewdp")
+      var fileName = input.files[0];
+      const reader = new FileReader();
+reader.onload = () => {
+const imageData = reader.result;
+console.log(imageData)
+displayDP.src=imageData
+Change_Image(imageData)
+}
+reader.readAsDataURL(fileName)
+Change_Image=async(imgsrc)=>{
+try{
+const response = await fetch('/UserDP', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+
+body: JSON.stringify({imgsrc})
+});
+if (response.ok) {
+console.log('Data saved successfully');
+} else {
+console.log('Error:', response.status);
+}
+} catch (error) {
+console.log('Error:', error);
+}
+}
+    }
+  </script>
+</body>
+</html>

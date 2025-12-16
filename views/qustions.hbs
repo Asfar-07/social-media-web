@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="/stylesheets/qustions.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+      <form action="/studentans" method="post">
+        {{#each examdata}}
+        <div class="Qs-div">
+            {{#if qs1}}
+            <div class="examdata">
+                  <div class="alldata">
+      <samp>Qs1:{{qs1}}</samp>
+      <samp>Mark1:{{mark1}}</samp>
+                  </div>
+      <input type="text" name="ans1" >
+            </div>
+            {{/if}}
+              {{#if qs2}}
+            <div class="examdata">
+                  <div class="alldata">
+      <samp>Qs2:{{qs2}}</samp>
+      <samp>Mark2:{{mark2}}</samp>
+                  </div>
+      <input type="text" name="ans2" >
+            </div>
+            {{/if}}
+            {{#if qs3}}
+            <div class="examdata">
+                  <div class="alldata">
+      <samp>Qs3:{{qs3}}</samp>
+      <samp>Mark3:{{mark3}}</samp>
+                  </div>
+      <input type="text" name="ans3" >
+            </div>
+            {{/if}}
+            {{#if qs4}}
+            <div class="examdata">
+                  <div class="alldata">
+      <samp>Qs4:{{qs4}}</samp>
+      <samp>Mark4:{{mark4}}</samp>
+                  </div>
+      <input type="text" name="ans4" >
+            </div>
+            {{/if}}
+            {{#if qs5}}
+            <div class="examdata">
+                  <div class="alldata">
+      <samp>Qs5:{{qs5}}</samp>
+      <samp>Mark5:{{mark5}}</samp>
+                  </div>
+      <input type="text" name="ans5" >
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+        <div class="sub">
+        <button >Submit</button>
+        </div>
+      </form>
+    </div>
+</body>
+</html>

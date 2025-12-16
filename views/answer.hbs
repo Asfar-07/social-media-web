@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/stylesheets/answer.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="main">
+  <div class="left-section">
+    <h2 >MarkList</h2>
+     <div class="tablediv"> 
+    
+    <table cellspacing="2" border="2"> 
+      <TR >
+        <th>ID</th>
+           <th>mark</th>
+      </TR>
+      {{#each examdata}}
+    <tr>
+      <td>{{this.IdNumber}}</td>
+      <td>{{this.TotalMark}}</td>
+    </tr>
+    {{/each}}
+    </table>
+     </div>
+  </div>
+  <div class="right-section">
+    {{#if leader}}
+  {{#each examdata}}
+   <div class="collection-ans">
+    <div class="Idname">
+      
+        <h4 >RollNo:{{this.IdNumber}}</h4>
+            </div>
+            {{#if ans1}}
+            <div class="main">
+    <span>Answer 1: {{ans1}} </span>
+            </div>
+            {{/if}}
+              {{#if ans2}}
+            <div class="main">
+    <span>Answer 2: {{ans2}} </span>
+            </div>
+            {{/if}}
+              {{#if ans3}}
+            <div class="main">
+    <span>Answer 3: {{ans3}} </span>
+            </div>
+            {{/if}}
+              {{#if ans4}}
+            <div class="main">
+    <span>Answer 4: {{ans4}} </span>
+            </div>
+            {{/if}}
+            <div class="timedilay">
+  {{#if AtTime}}
+   <div class="greenmark">Nodilay</div>
+   {{else}}
+   <div class="redmark">Delay</div>
+   {{/if}}
+   </div>
+   <div class="submitmark" id="submitmark">
+    {{#if TotalMark}}
+   {{else}}
+    <div class="Idname">
+    mark1 <input width="50px" type="number" name="examMark1" value={{IdNumber}} class="empty" id="hello" required>
+   <input width="50px" type="number" name="examMark2"  class="mark" id="hello" required>
+    <button class="submit" onclick="marked(this)">✅</button>
+  </div>
+   {{/if}}
+   </div>
+   <div  class="time-date">
+    {{createtime}}
+   </div>
+   </div>
+   {{/each}}
+   {{/if}}
+  </div>
+  </div>
+  <script>
+    function marked(button){
+        const inputs1 = button.parentElement.querySelectorAll('.mark');
+         const inputs2 = button.parentElement.querySelectorAll('.empty');
+      const values1 = Array.from(inputs1).map(input => input.value);
+      const values2 = Array.from(inputs2).map(input => input.value);
+      console.log(values2);
+      const inputData=values1[0]
+      const idnumber=values2[0]
+      button.remove();
+ const sendData = async (data) => {
+      try {
+        const response = await fetch('/trMark', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ data })
+        });
+
+        if (response.ok) {
+          console.log('Data saved successfully');
+        } else {
+          console.log('Error:', response.status);
+        }
+      } catch (error) {
+        console.log('Error:', error);
+      }
+    };
+     sendData({Mark:inputData,IdNo:idnumber})
+}
+ 
+  </script>
+ 
+</body>
+</html>

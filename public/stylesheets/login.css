@@ -1,0 +1,205 @@
+body{
+  /* overflow: hidden; */
+  padding: 0;
+  margin: 0;
+ overflow: hidden;
+ }
+ 
+ .main{
+ display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+     width: 100%;
+     height: 100vh;
+     
+ }
+ .container-mobile{
+  display: none;
+}
+   .container1 {
+    
+       position: relative;
+       width: 70%;
+       height: 550px;
+   }
+  .container1 .empty{
+    display: none;
+   }
+
+ .container1  .frontDiv {
+       width: 50%;
+       height: 530px;
+       background:linear-gradient(rgba(1, 1, 248, 0.619),rgba(8, 0, 255, 0.63)),url("../images/pngtree-pink-purple-fantasy-bokeh-light-spot-background-image_534098.jpg");
+       background-repeat: no-repeat;
+       color: white;
+         background-size:100% 100% ;
+       position: absolute;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       top: 0;
+       left: 0;
+       z-index: 2; /* Ensure it's in front */
+       box-shadow: 1px 0px 15px rgba(0, 0, 0, 0.527);
+   }
+   @font-face{
+    font-family: myFont;
+    src:url(/images/Super\ Squad.ttf)
+}
+  .frontDiv p{
+     margin: 0px 10px;
+     font-size: 14px;
+   }
+  .frontDiv h1{
+     margin: 3px;
+     margin-bottom: 10px;
+     font-family: myFont;
+     letter-spacing: 2px;
+   }
+  .sepfond p{
+    font-size: 18px;
+   }
+    .frontDiv button{
+    color:rgb(0, 55, 255);
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+   }
+
+ .container1  .backDiv {
+       width: 50%;
+       height: 530px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       box-shadow: 1px 0px 15px rgba(0, 0, 0, 0.527);
+       position: absolute;
+       top: 0;
+       left: 0;
+       z-index: 1; /* Behind frontDiv */
+        animation: moveFrontDiv 1.5s ease-in-out forwards;
+   }
+ .backDiv h2{
+    margin-bottom: 50px;
+    color: rgb(0, 119, 255);
+    display: flex;
+    justify-content: center;
+   }
+   /* .container2 input{
+    margin: 10px;
+    padding: 10px;
+    width: 85%;
+    background-color: rgb(240, 240, 240);
+    border: 0;
+    border-radius: 2px;
+   } */
+  .backDiv input{
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    background-color: rgb(240, 240, 240);
+    border: 0;
+    border-radius: 2px;
+   }
+  .container3 input{
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid rgb(243, 29, 29);
+    background-color: rgba(246, 78, 78, 0.241);
+    border-radius: 2px;
+   }
+   .singup-part{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+   }
+   .singup-part div {
+    color: rgb(0, 119, 255);
+    text-decoration: none;
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+   }
+   .singup-part a {
+    color: rgb(0, 119, 255);
+    text-decoration: none;
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+   }
+   .input-group p{
+ color: #f90101;
+   }
+   .loginpart{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+   }
+   .loginpart button{
+    padding:10px 100px;
+    border: 0;
+    color: white;
+    background-color:rgb(70, 70, 248) ;
+    border-radius: 30px;
+    cursor: pointer;
+
+   }
+   @media screen and (max-width: 600px) {
+   
+    .main {
+     height: 100vh;
+     width: 100%;
+    }
+  
+  .container-mobile{
+     height: 100vh;
+     width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .container1 {
+      display: none;
+}
+.frontDiv {
+    width: 100%;
+    height: 35%;
+       background:linear-gradient(rgba(1, 1, 248, 0.619),rgba(8, 0, 255, 0.63)),url("../images/pngtree-pink-purple-fantasy-bokeh-light-spot-background-image_534098.jpg");
+       background-repeat: no-repeat;
+       color: white;
+         background-size:100% 100% ;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+      
+   }
+   .backDiv {
+        width: 100%;
+    height: 65%;
+    display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column; 
+   }
+.empty{
+ display: none;
+}
+
+
+  }
+   @keyframes moveFrontDiv {
+       0% {
+           transform: translateX(0) translateY(0);
+              box-shadow: none;
+       }
+       100% {
+           transform: translateX(100%) ;
+       }
+   }
+   

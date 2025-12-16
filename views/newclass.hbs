@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/newclass.css">
+    <title>Document</title>
+</head>
+<body>
+   
+<h1>Create New Channel</h1>
+
+  <form action="/newclass" method="POST">
+    <label for="className">Class Name:</label>
+    <input type="text" id="className" name="className" required>
+    <div class="maindiv">
+      <label for="className">Class Id:</label>
+      {{#if classexist}}
+      <div >ClassId Exist</div>
+      {{else}}
+      {{/if}}
+      </div>
+    <input type="text" id="classId"  name="classId" required><input type="button" onclick="random()" class="random" value="random">
+    <label for="Email">Email:</label>
+    <input type="text" id="username"   name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+{{!-- {{#if userdata}} --}}
+    <button type="submit" class="last-submit">Create Class</button>
+    {{!-- {{else}}
+    <a href="/login">please login</a>
+    {{/if}} --}}
+  </form>
+  <script>
+    function getRandomAlphabet() {
+  const alphabets = "abcdefghijklmnopqrstuvwxyz";
+  const randomIndex = Math.floor(Math.random() * alphabets.length);
+  return alphabets[randomIndex];
+}
+
+function generateRandomAlphabets(count) {
+  let randomAlphabets = "";
+  for (let i = 0; i < count; i++) {
+    randomAlphabets += getRandomAlphabet();
+  }
+  return randomAlphabets;
+}
+
+function random(){
+  const clkbuttom=document.getElementById("classId")
+const fiveRandomAlphabets = generateRandomAlphabets(5);
+clkbuttom.value=fiveRandomAlphabets+Math.round(Math.random()*1000)
+}
+  </script>
+</body>
+</html>

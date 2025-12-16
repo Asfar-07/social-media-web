@@ -1,0 +1,151 @@
+.proFile-MNgP{
+  background-color:#95b0e4;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    height: 50px;
+  }
+  .proFile-MNgP div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10PX;
+  }
+  .proFile-MNgP_L :first-child{
+    width: 40px;
+    height: 40px;
+   
+  }
+  .proFile-MNgP_L :first-child img{
+   border-radius: 50%;
+   border: 1px solid white;
+   background: 100% 100%;
+   
+  }
+  .proFile-MNgP_L :nth-child(2){
+    font-size: 27px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+      .proFile-MNgP_R i{
+        font-size: 22px;
+        margin: 0 6px;
+      }
+      .proFile-MNgP_R_follow button{
+        background-color: rgb(0, 206, 252);
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+       padding: 6px 40px;
+        margin: 20px;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .proFile-MNgP_R_follow button:hover{
+        border: 1px solid rgb(0, 64, 255);
+      }
+      .ProFile_Full-D{
+        position: fixed;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(149, 176, 228, 1);
+        width: 80%;
+        height: 75vh;
+        /* animation: moving 1s ease-in; */
+      }
+      .ProFile_Full-D .cancel{
+        display: flex;
+        justify-content: end;
+        padding: 10px;
+        font-size: 24px;
+      }
+      .proFile-MNgP_Full{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30%;
+      }
+  .proFile-MNgP_Full :nth-child(1){
+    width: 60px;
+    height: 60px;
+    background-color: antiquewhite;
+    border-radius: 60%;
+  }
+  .proFile-MNgP_Full :nth-child(2){
+    font-size: 27px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  .proFile-MNgP_Full label {
+background-color: rgb(255, 255, 255);
+padding:5px 30px;
+  border: 0;
+  color:blue;
+  border-radius: 10px;
+  }
+  .Profile-Full_Main{
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .Profile-Full_Main-L{
+    display: flex;
+    flex-direction: column;
+  }
+  .Profile-Full_Main-L h3{
+      margin:8px 5px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .Profile-Full_Main-L p{
+    margin: 4px 20px;
+    padding: 0 ;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  .Profile-Full_Main-R{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    padding-bottom: 30px;
+  }
+  .Profile-Full_Main-R-bottom{
+    margin: 10px 0;
+    font-size: 25px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    flex-direction: column;
+  }
+  .Profile-Full_Main-R-top{
+    display: flex;
+    justify-content: space-between;
+  }
+  .Profile-Full_Main-R-top h4{
+    margin: 0;
+    padding: 0;
+
+  }
+  .Profile-Full_Main-R-top p{
+    margin: 0;
+    padding: 0;
+  }
+  /* .Profile-Full_Main-R div a{
+  } */
+  @keyframes moving{
+    0%{
+      height: 50px;
+    }
+    100%{
+      height: 75vh;
+    }
+
+
+  }

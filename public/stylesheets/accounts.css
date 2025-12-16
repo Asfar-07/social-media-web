@@ -1,0 +1,195 @@
+body{
+     margin: 0;     
+}
+.imgcontainer{
+
+    width: 200px;
+    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+}
+.imgcontainer label{
+     width: 80px;
+     height: 80PX;
+     margin-top: 20px;
+}
+.imgcontainer label img{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 50%;
+}
+.Namecontainer{
+    font-size:  34px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.main{
+    margin-left: 20px;
+}
+.myaccounts{
+  overflow-x: auto;
+    height: 300px;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid rgba(66, 65, 65, 0.76);
+    border-radius: 5px;
+}
+.each-channel{
+    background-color:#2317A5;
+    min-width: 200px;
+    height: 92%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 13px;
+    margin: 0 15px;
+}
+.top{
+    height: 68%;
+}
+.top div{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+.top div :nth-child(1){
+    height: 12%;
+    width: 100%;
+    display: flex;
+  align-items: end;
+  justify-content: end;
+  
+    /* padding-right:8px;
+    padding-top: 3px; */
+}
+
+.top div :nth-child(1) button{
+    background-color: transparent;
+    border: 0;
+    width: 37px;
+    color: white;
+    font-size: 17px;
+    padding-top:5px ;
+}
+.top div :nth-child(2){
+    height: 88%;
+ display: flex;
+ flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.top div :nth-child(2) div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 ;
+    margin: 8px 0;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    
+}
+.top div :nth-child(2) div i{
+    display: flex;
+    justify-self: start;
+    /* color: aqua;
+    width: 15px;
+    font-size: 35px; */
+}
+.top div :nth-child(2) p{
+    color: white;
+    padding: 0;
+    margin: 0;
+    margin: 2px 0;
+}
+.top div :nth-child(2) h2{
+    color: white;
+    padding: 0;
+    margin:4px 0;
+    height: 20px;
+}
+/* .image{
+    background-size: 100% 100%;
+
+} */
+.bottom{
+    height: 32%;
+    background-color:#4B4CD6;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    
+}
+.bottom div{
+    padding: 0;
+    margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.bottom div p{
+margin: 10px 0;
+color:#BDBDBD;
+}
+.bottom div button{
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
+    color:white ;
+}
+.following{
+    overflow-x: auto;
+    height: 280px;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid rgba(66, 65, 65, 0.76);
+    border-radius: 5px;
+}
+.empty{
+    display: none;
+}
+.setting-ac{
+    display: none;
+    min-width: 200px;
+    height: 92%;
+    background-color: #8A82A8;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 13px;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.setting-ac div{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+.setting-ac samp{
+    width: 80%;
+    height: 1px;
+    margin-left: 20px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.setting-ac div :nth-child(1){
+    font-size: 19px;
+    margin-left: 5px;
+    padding: 0px 10px;
+}
+
+.setting-ac div :nth-child(2){
+    font-size: 25px;
+    font-family: bold;
+}
