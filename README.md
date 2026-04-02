@@ -27,6 +27,13 @@ and designing a functional platform from scratch while learning real-world devel
 
 ---
 
+## 🛠️ Preview
+
+![Project Preview](https://github.com/Asfar-07/git-project/blob/main/collection/sm-1.png)
+![Project Preview](https://github.com/Asfar-07/git-project/blob/main/collection/sm-2.png)
+![Project Preview](https://github.com/Asfar-07/git-project/blob/main/collection/sm-3.png)
+![Project Preview](https://github.com/Asfar-07/git-project/blob/main/collection/sm-4.png)
+
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
